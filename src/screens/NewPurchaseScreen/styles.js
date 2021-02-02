@@ -31,4 +31,36 @@ export default StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold"
     },
+    logo: {
+        flex: 1,
+        height: 120,
+        width: 90,
+        alignSelf: "center",
+        margin: 30
+    },
+    // https://github.com/hossein-zare/react-native-dropdown-picker
+    picker: {
+        backgroundColor: 'white',
+        borderColor: 'white',
+    },
+    pickerContainer: {
+        height: 48,
+        borderRadius: 5,
+        backgroundColor: 'white',
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+    },
+    pickerDropdown: {
+        borderRadius: 5,
+        backgroundColor: 'white',
+        marginRight: 30,
+    },
+    pickerPlaceholder: {
+        color: 'rgb(191,191,191)',
+    },
+    pickerSelectedLabel: {
+        color: 'black',
+    }
 })

@@ -1,10 +1,20 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
+import styles from './styles';
 
 export default function HomeScreen(props) {
+    const onNewPurchaseButtonPress = () => {
+        console.log(props)
+        props.navigation.navigate('NewPurchase', user=props.user)
+    }
+
     return (
         <View>
-            <Text>Home Screen</Text>
+            <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => onNewPurchaseButtonPress()}>
+                    <Text style={styles.buttonTitle}>New Purchase</Text>
+            </TouchableOpacity>
         </View>
     )
 }
