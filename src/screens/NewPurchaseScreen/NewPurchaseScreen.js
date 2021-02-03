@@ -8,18 +8,23 @@ import { firebase } from '../../firebase/config'
 export default function NewPurchaseScreen(props) {
     const [purchaseName, setPurchaseName] = useState('')
 
-    const categoryNames = []
-    const [categoryName, setCategoryName] = useState('')
+    const [categoryNames, setCategoryNames] =  useState([])
+    const [selectedCategoryName, setSelectedCategoryName] = useState('')
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // Fetch category names from backend
+        // Fetch category names from backend on load
         const categoriesRef = firebase.firestore().collection('categories')
         categoriesRef
             .doc(props.user.id)
             .get()
-            .then(documentSnapshot => documentSnapshot.get('categories').forEach(category => {
-                categoryNames.push(category)
-            }))
+            .then(documentSnapshot => {
+                const retrievedCategoryNames = []
+                documentSnapshot.get('categories').forEach(category => {
+                    retrievedCategoryNames.push(category)
+                })
+                setCategoryNames(retrievedCategoryNames.sort())
+            })
             .catch(error => alert(error))
     })
 
@@ -56,7 +61,7 @@ export default function NewPurchaseScreen(props) {
                       ))}
                     defaultNull
                     placeholder="Category"
-                    onChangeItem={item => setCategoryName(item.value)}
+                    onChangeItem={item => setSelectedCategoryName(item.value)}
                 />
             </KeyboardAwareScrollView>
         </View>
