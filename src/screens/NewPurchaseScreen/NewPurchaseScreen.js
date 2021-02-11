@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Image, Text, TextInput, View } from 'react-native'
+import { Image, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import DropDownPicker from 'react-native-dropdown-picker'
 import styles from './styles'
 import { firebase } from '../../firebase/config'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 export default function NewPurchaseScreen(props) {
     const [purchaseName, setPurchaseName] = useState('')
@@ -47,22 +48,27 @@ export default function NewPurchaseScreen(props) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <DropDownPicker
-                    style={styles.picker}
-                    containerStyle={styles.pickerContainer}
-                    dropDownStyle={styles.pickerDropdown}
-                    placeholderStyle={styles.pickerPlaceholder}
-                    selectedLabelStyle={styles.pickerSelectedLabel}
-                    items ={categoryNames.map(name => (
-                        {
-                          label: name,
-                          value: name
-                        } 
-                      ))}
-                    defaultNull
-                    placeholder="Category"
-                    onChangeItem={item => setSelectedCategoryName(item.value)}
-                />
+                <View style={styles.categoryRow}>
+                    <DropDownPicker
+                        style={styles.picker}
+                        containerStyle={styles.pickerContainer}
+                        dropDownStyle={styles.pickerDropdown}
+                        placeholderStyle={styles.pickerPlaceholder}
+                        selectedLabelStyle={styles.pickerSelectedLabel}
+                        items={categoryNames.map(name => (
+                            {
+                            label: name,
+                            value: name
+                            } 
+                        ))}
+                        defaultNull
+                        placeholder="Category"
+                        onChangeItem={item => setSelectedCategoryName(item.value)}
+                    />
+                    <TouchableOpacity onPress={() => alert(0)}>
+                        <Icon name='plussquare' color='#788eec' size={48}/>
+                    </TouchableOpacity>
+                </View>
             </KeyboardAwareScrollView>
         </View>
     )

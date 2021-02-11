@@ -38,24 +38,27 @@ export default StyleSheet.create({
         alignSelf: "center",
         margin: 30
     },
+    categoryRow: {
+        flex:1,
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20,
+        height: 48,
+        flexDirection: "row",
+    },
+
     // https://github.com/hossein-zare/react-native-dropdown-picker
     picker: {
         backgroundColor: 'white',
         borderColor: 'white',
     },
     pickerContainer: {
-        height: 48,
-        borderRadius: 5,
-        backgroundColor: 'white',
-        marginTop: 10,
-        marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
+        flex:1,
+        marginRight: 10,
     },
     pickerDropdown: {
         borderRadius: 5,
         backgroundColor: 'white',
-        marginRight: 30,
     },
     pickerPlaceholder: {
         color: 'rgb(191,191,191)',
