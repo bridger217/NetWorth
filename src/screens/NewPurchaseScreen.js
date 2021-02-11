@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import DropDownPicker from 'react-native-dropdown-picker'
 import styles from './styles'
 import { firebase } from '../../firebase/config'
+import { StyleSheet } from 'react-native';
 
 export default function NewPurchaseScreen(props) {
     const [purchaseName, setPurchaseName] = useState('')

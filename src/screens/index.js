@@ -1,7 +1,7 @@
-export { default as LoginScreen } from './LoginScreen/LoginScreen'
+export { default as LoginScreen } from './LoginScreen'
 
-export { default as HomeScreen } from './HomeScreen/HomeScreen'
+export { default as HomeScreen } from './HomeScreen'
 
-export { default as RegistrationScreen } from './RegistrationScreen/RegistrationScreen'
+export { default as RegistrationScreen } from './RegistrationScreen'
 
-export { default as NewPurchaseScreen } from './NewPurchaseScreen/NewPurchaseScreen'
+export { default as NewPurchaseScreen } from './NewPurchaseScreen'

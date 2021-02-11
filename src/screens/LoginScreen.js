@@ -1,8 +1,30 @@
 import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import styles from './styles';
-import { firebase } from '../../firebase/config';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { Spacing, Others, Inputs, Buttons } from '../styles'
+import { StyleSheet } from 'react-native';
+import { firebase } from '../../firebase/config'
+
+const styles = StyleSheet.create({
+    container: {
+        ...Spacing.container
+    },
+    logo: {
+        ...Others.logo
+    },
+    input: {
+        ...Inputs.spanning,
+        ...Inputs.text
+    },
+    button: {
+        ...Buttons.spanning,
+        ...Buttons.primary1
+    },
+    section: {
+      flex: 3,
+      ...Typography.section,
+    }
+  })
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')

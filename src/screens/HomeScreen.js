@@ -1,6 +1,8 @@
 import React from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
-import styles from './styles';
+import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
+import styles from '../styles'
+
+const styles = StyleSheet.create({})
 
 export default function HomeScreen(props) {
     const onNewPurchaseButtonPress = () => {
