@@ -24,7 +24,9 @@ export default StyleSheet.create({
         height: 48,
         borderRadius: 5,
         alignItems: "center",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexDirection: "row",
+        flex: 1,
     },
     buttonTitle: {
         color: 'white',
@@ -59,11 +61,40 @@ export default StyleSheet.create({
     pickerDropdown: {
         borderRadius: 5,
         backgroundColor: 'white',
+        flex:1,
     },
     pickerPlaceholder: {
         color: 'rgb(191,191,191)',
     },
     pickerSelectedLabel: {
         color: 'black',
+    },
+    newCategoryInput: {
+        height: 48,
+        borderRadius: 5,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        paddingLeft: 16,
+        borderColor: 'rgb(191,191,191)',
+    },
+    newCategoryButton: {
+        backgroundColor: '#788eec',
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 90,
+        height: 48,
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: 'center'
+    },
+    priceInput: {
+        marginTop: 30,
+        marginBottom: 20,
+        flex: 0.9,
     }
+
 })
