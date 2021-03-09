@@ -30,8 +30,7 @@ export default function NewPurchaseScreen(props) {
             price: newPurchasePrice
         })
         .then(
-            // props.navigation.Navigate()
-            alert("yay!")
+            props.navigation.navigate('Home', user=props.user)
         )
     }
 
