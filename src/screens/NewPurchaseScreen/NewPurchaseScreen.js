@@ -17,14 +17,22 @@ export default function NewPurchaseScreen(props) {
     const [newCategoryName, setNewCategoryName] = useState('')
     const [newCategoryLoading, setNewCategoryLoading] = useState(false)
     const [newPurchasePrice, setNewPurchasePrice] = useState(0.0)
-    const [price, setPrice] = useState(0.00)
 
     const toggleCategoryViewVisible = () => {
         setNewCategoryViewVisible(!newCategoryViewVisible)
     }
 
     const onNewPurchaseButtonPress = () => {
-        alert("new purchase!")
+        firebase.firestore().collection('users').doc(props.user.id).collection('purchases')
+        .add({
+            name: purchaseName,
+            category: selectedCategoryName,
+            price: newPurchasePrice
+        })
+        .then(
+            // props.navigation.Navigate()
+            alert("yay!")
+        )
     }
 
     const loadNewCategories = () => {
@@ -44,7 +52,7 @@ export default function NewPurchaseScreen(props) {
         setNewCategoryLoading(true)
         const newCategoryRef = firebase.firestore().collection('users').doc(props.user.id).collection('categories').doc(newCategoryName)
         newCategoryRef
-            // TODO: throw error if already exists
+            // TODO: throw error if already exists. maybe use add and an auto-id?
             .set({})
             .then(resp => {
                 loadNewCategories()
@@ -73,8 +81,8 @@ export default function NewPurchaseScreen(props) {
                 />
                 <CurrencyInput
                         style={[styles.input, styles.priceInput]}
-                        value={price}
-                        onChangeValue={setPrice}
+                        value={newPurchasePrice}
+                        onChangeValue={setNewPurchasePrice}
                         unit="$"
                         delimiter=","
                         separator="."
