@@ -45,6 +45,7 @@ export default StyleSheet.create({
         marginLeft: 30,
         marginRight: 30,
         marginTop: 20,
+        marginBottom: 20,
         height: 48,
         flexDirection: "row",
     },
@@ -95,6 +96,17 @@ export default StyleSheet.create({
         marginTop: 30,
         marginBottom: 20,
         flex: 0.9,
-    }
+    },
+    datePicker: {
+        height: 48,
+        borderRadius: 5,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        paddingLeft: 16
+    },
 
 })

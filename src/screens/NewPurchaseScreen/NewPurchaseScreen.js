@@ -6,7 +6,8 @@ import styles from './styles'
 import { firebase } from '../../firebase/config'
 import Icon from 'react-native-vector-icons/AntDesign'
 import { Overlay } from 'react-native-elements'
-import CurrencyInput from 'react-native-currency-input';
+import CurrencyInput from 'react-native-currency-input'
+import DateTimePicker from '@react-native-community/datetimepicker'
 
 export default function NewPurchaseScreen(props) {
     const [purchaseName, setPurchaseName] = useState('')
@@ -17,10 +18,16 @@ export default function NewPurchaseScreen(props) {
     const [newCategoryName, setNewCategoryName] = useState('')
     const [newCategoryLoading, setNewCategoryLoading] = useState(false)
     const [newPurchasePrice, setNewPurchasePrice] = useState(0.0)
+    const [selectedDate, setSelectedDate] = useState(new Date())
 
     const toggleCategoryViewVisible = () => {
         setNewCategoryViewVisible(!newCategoryViewVisible)
     }
+
+    const onDateChange = (event, pickedDate) => {
+        const currentDate = pickedDate || date;
+        setSelectedDate(currentDate);
+      };
 
     const onNewPurchaseButtonPress = () => {
         firebase.firestore().collection('users').doc(props.user.id).collection('purchases')
@@ -120,6 +127,17 @@ export default function NewPurchaseScreen(props) {
                     <TouchableOpacity onPress={toggleCategoryViewVisible}>
                         <Icon name='plussquare' color='#788eec' size={48}/>
                     </TouchableOpacity>
+                </View>
+                <View style={styles.datePicker}>
+                    <DateTimePicker
+                        testID="dateTimePicker"
+                        value={selectedDate}
+                        mode={"date"}
+                        is24Hour={true}
+                        display="default"
+                        onChange={onDateChange}
+                        // style={{ backgroundColor: 'white', marginTop: '5'}}
+                    />
                 </View>
                 <TouchableOpacity
                     style={[styles.button, {marginTop: 150}]}
