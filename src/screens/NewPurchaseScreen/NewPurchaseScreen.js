@@ -27,7 +27,8 @@ export default function NewPurchaseScreen(props) {
         .add({
             name: purchaseName,
             category: selectedCategoryName,
-            price: newPurchasePrice
+            price: newPurchasePrice,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
         .then(
             props.navigation.navigate('Home', user=props.user)
